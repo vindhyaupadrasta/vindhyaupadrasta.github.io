@@ -250,7 +250,7 @@ h1,h2,h3{text-wrap:balance}
 @media(max-width:560px){.certs li{flex-direction:column;align-items:flex-start;gap:2px}}
 
 /* programs panel */
-.prog{margin-top:30px;border:2px solid var(--ink);border-radius:var(--radius);background:var(--cream);padding:30px;display:grid;grid-template-columns:.85fr 1.4fr;gap:36px;align-items:start}
+.prog{margin-top:30px;border:2px solid var(--ink);border-radius:var(--radius);background:var(--cream);padding:30px;display:grid;grid-template-columns:.7fr 1.6fr;gap:36px;align-items:start}
 .prog-label{font-family:var(--display);font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);display:block;margin-bottom:10px}
 .prog h3{font-size:1.45rem;font-weight:900;line-height:1.15;margin-bottom:22px}
 .prog-stat{display:flex;align-items:center;gap:16px}
@@ -365,6 +365,15 @@ nav ul a.active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
 .cbtn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
 .cbtn:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
 .cbtn:focus-visible{outline:3px solid var(--purple);outline-offset:3px}
+.case .result small{min-height:calc(2 * 1.4em)}
+
+/* About: headline across the top, story in two balanced columns */
+.about .grid{grid-template-columns:1fr;gap:30px}
+@media(min-width:861px){.about .grid>div:first-child{position:static}}
+.about h2{max-width:26ch;text-wrap:balance}
+@media(min-width:861px){.about .grid>div:last-child{column-count:2;column-gap:56px}.about .grid>div:last-child p{break-inside:avoid}.about .grid>div:last-child p:last-child{margin-bottom:0}}
+.about p{font-size:1.05rem}
+.prog-groups .pg{margin-bottom:0}.prog-groups{display:grid;gap:22px}.pg+.pg{margin-top:0}.prog-groups .chips{gap:8px}
 </style>
 </head>
 <body>
@@ -546,10 +555,10 @@ nav ul a.active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
         <div class="prog-stat"><b>4</b><span>global scrum teams run at a time to deliver a federated data platform</span></div>
       </div>
       <div class="prog-groups">
-        <div class="pg"><h4>Global teams I led</h4><div class="chips"><span>Product owners</span><span>Data engineers</span><span>Data scientists</span><span>QA</span><span>Admin teams</span><span>Program managers</span></div></div>
-        <div class="pg"><h4>Functions I coordinated across</h4><div class="chips"><span>Engineering and architecture leads</span><span>Design and UX</span><span>API teams</span><span>Third-party vendors</span><span>Governance</span><span>Regulatory</span><span>Security, legal, and compliance</span><span>Sales, delivery, and partners</span></div></div>
-        <div class="pg"><h4>Customers and users I engaged</h4><div class="chips"><span>End customers</span><span>Business and operations users</span><span>Internal data consumers</span><span>Client business sponsors</span></div></div>
-        <div class="pg"><h4>Executives I worked with</h4><div class="chips"><span>Heads of Data</span><span>Chief Data Officers</span><span>CIOs, CTOs, and technology leaders</span><span>Marketing, finance, and operations leaders</span></div></div>
+        <div class="pg"><h4>Teams I led</h4><div class="chips"><span>Product Owners</span><span>Data Engineers</span><span>Data Scientists</span><span>QA Team</span><span>Program Managers</span></div></div>
+        <div class="pg"><h4>Functions I partnered with</h4><div class="chips"><span>Engineering</span><span>Design</span><span>Data</span><span>Marketing</span><span>Customer Success</span><span>Legal and Compliance</span></div></div>
+        <div class="pg"><h4>Users and customers I engaged</h4><div class="chips"><span>End users</span><span>Business teams</span><span>Operations teams</span><span>Client sponsors</span></div></div>
+        <div class="pg"><h4>Executives I worked with</h4><div class="chips"><span>Heads of Data and CDOs</span><span>CIOs and CTOs</span><span>Business leaders</span></div></div>
       </div>
     </div>
   </div>
