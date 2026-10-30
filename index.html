@@ -276,7 +276,7 @@ html{scroll-padding-top:64px}
 .burger:hover{background:var(--lime);transform:translateY(-1px)}
 .burger span{display:block;width:20px;height:2.5px;background:var(--ink);border-radius:2px;transition:transform .3s ease, opacity .2s ease}
 .menu{display:none}
-@media(max-width:960px){
+@media(max-width:1100px){
   nav ul{display:none}
   .burger{display:flex}
   .menu{display:block;position:fixed;left:0;right:0;top:64px;bottom:0;z-index:49;background:var(--night);color:#fff;overflow:auto;visibility:hidden;opacity:0;transform:translateY(-10px);transition:opacity .3s ease, transform .3s ease, visibility 0s linear .3s}
@@ -301,23 +301,75 @@ html{scroll-padding-top:64px}
 .menu-link{color:#c9bfe6;text-decoration:none;font-weight:500}
 .menu-link:hover{color:#fff}
 @media(max-width:420px){.nav-right .pill{padding:10px 16px}}
-</style>
+
+/* clear roles: pills = clickable, flat rounded labels = information only */
+.pill{display:inline-flex;align-items:center;gap:8px}
+.pill svg{flex:none;transition:transform .2s}
+.pill:hover svg{transform:translateY(2px)}
+.tags{align-items:center}
+.tags::before{content:"Focus areas";flex-basis:100%;font-family:var(--display);font-weight:800;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:-2px}
+.tag{border:0;border-radius:8px;background:rgba(122,60,255,.09);color:#3b2090;font-size:.8rem;font-weight:600;padding:6px 11px;cursor:default;user-select:none}
+.chips span{border:0;border-radius:8px;font-size:.86rem;padding:6px 11px;cursor:default}
+.pg:nth-child(1) .chips span{background:rgba(210,255,63,.6)}
+.pg:nth-child(2) .chips span{background:rgba(111,211,255,.38)}
+.pg:nth-child(3) .chips span{background:rgba(255,200,61,.5)}
+.open-note{border:0;border-radius:10px;background:rgba(210,255,63,.5);padding:9px 15px;display:inline-flex;align-items:center;gap:9px;cursor:default}
+.open-note::before{content:"";width:9px;height:9px;border-radius:50%;background:#1a8f5a;box-shadow:0 0 0 4px rgba(26,143,90,.2)}
+.case:hover,.dcard:hover{transform:none;box-shadow:none}
+
+/* navigation accents */
+nav{border-bottom:0}
+nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--pink),var(--purple),var(--sky),var(--lime),var(--sun))}
+nav ul{gap:2px}
+nav ul a{position:relative;display:block;padding:9px 12px;border-radius:10px;font-weight:600;font-size:.93rem;color:var(--muted);transition:color .2s}
+nav ul a::after{content:"";position:absolute;left:12px;right:12px;bottom:3px;height:4px;border-radius:4px;background:var(--accent,var(--pink));transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+nav ul a:hover,nav ul a.active{color:var(--ink)}
+nav ul a:hover::after,nav ul a.active::after{transform:scaleX(1)}
+nav ul li:nth-child(1) a{--accent:var(--pink)}
+nav ul li:nth-child(2) a{--accent:#aee000}
+nav ul li:nth-child(3) a{--accent:var(--sun)}
+nav ul li:nth-child(4) a{--accent:var(--sky)}
+nav ul li:nth-child(5) a{--accent:var(--purple)}
+nav ul li:nth-child(6) a{--accent:var(--pink)}
+
+.logo{display:inline-flex;align-items:center;gap:10px}
+.logo .mark{width:34px;height:34px;border-radius:10px;background:var(--purple);color:var(--lime);display:grid;place-items:center;font-size:1.2rem;font-weight:900;line-height:1;box-shadow:2px 2px 0 var(--ink);transition:transform .2s,box-shadow .2s}
+.logo em{font-style:normal}
+.logo:hover .mark{transform:translate(-1px,-1px) rotate(-6deg);box-shadow:4px 4px 0 var(--ink)}
+
+/* colorful tile nav */
+nav ul{gap:8px}
+nav ul a::after{display:none}
+nav ul li:nth-child(1) a{--c:var(--pink)}nav ul li:nth-child(2) a{--c:var(--lime)}nav ul li:nth-child(3) a{--c:var(--sun)}nav ul li:nth-child(4) a{--c:var(--sky)}nav ul li:nth-child(5) a{--c:#c9a6ff}nav ul li:nth-child(6) a{--c:#ff9ccb}
+
+nav ul a{padding:7px 12px;font-size:.88rem;font-weight:700;color:var(--ink);background:var(--c);border:2px solid var(--ink);border-radius:11px;box-shadow:2px 2px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+nav ul a:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+nav ul a.active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
+
+@media(max-width:1100px){
+.menu ul{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0}
+.menu li{list-style:none;border:0}
+.menu li a{display:flex;align-items:flex-end;min-height:96px;padding:14px;border-radius:18px;font-size:1.05rem;font-weight:800;color:var(--ink);border:2px solid #fff}
+.menu li a i{display:none}
+.menu li a:hover,.menu li a:focus-visible{color:var(--ink);transform:translate(-2px,-2px);box-shadow:4px 4px 0 #fff}
+.menu li:nth-child(1) a{background:var(--pink)}.menu li:nth-child(2) a{background:var(--lime)}.menu li:nth-child(3) a{background:var(--sun)}.menu li:nth-child(4) a{background:var(--sky)}.menu li:nth-child(5) a{background:#c9a6ff}.menu li:nth-child(6) a{background:#ff9ccb}
+}</style>
 </head>
 <body>
 
 <nav>
   <div class="wrap">
-    <a class="logo" href="#top">Vindhya<span>.</span></a>
+    <a class="logo" href="#top" aria-label="Vindhya, home"><b class="mark" aria-hidden="true">V</b><em>Vindhya</em></a>
     <ul>
-      <li><a href="#about">About</a></li>
+      <li><a href="#about">About me</a></li>
       <li><a href="#drive">What Drives Me</a></li>
-      <li><a href="#simple">Untangled</a></li>
-      <li><a href="#wrapped">Career Wrapped</a></li>
+      <li><a href="#simple">Impact</a></li>
+      <li><a href="#wrapped">Career Highlights</a></li>
       <li><a href="#leadership">Leadership</a></li>
       <li><a href="#experience">Experience</a></li>
     </ul>
     <div class="nav-right">
-      <a class="pill" href="#contact">Say hello</a>
+      <a class="pill" href="#contact">Get in touch</a>
       <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -325,15 +377,14 @@ html{scroll-padding-top:64px}
 <div class="menu" id="menu" aria-hidden="true">
   <div class="wrap">
     <ul>
-      <li><a href="#about"><i></i>About</a></li>
+      <li><a href="#about"><i></i>About me</a></li>
       <li><a href="#drive"><i></i>What Drives Me</a></li>
-      <li><a href="#simple"><i></i>Untangled</a></li>
-      <li><a href="#wrapped"><i></i>Career Wrapped</a></li>
+      <li><a href="#simple"><i></i>Impact</a></li>
+      <li><a href="#wrapped"><i></i>Career Highlights</a></li>
       <li><a href="#leadership"><i></i>Leadership</a></li>
       <li><a href="#experience"><i></i>Experience</a></li>
     </ul>
     <div class="menu-foot">
-      <a class="pill menu-cta" href="Vindhya_Upadrasta_Resume.pdf" download>Download résumé</a>
       <a class="menu-link" href="mailto:vindhyaupadrasta@gmail.com">vindhyaupadrasta@gmail.com</a>
     </div>
   </div>
@@ -347,8 +398,7 @@ html{scroll-padding-top:64px}
       <p class="lead">I turn complex data and AI problems into meaningful customer experiences, and into results the business can measure.</p>
       <div class="proof"><span><b>$100M+</b> business value</span><span><b>1,000+</b> features shipped</span><span><b>10+</b> products launched</span></div>
       <div class="ctas">
-        <a class="pill" href="#wrapped">See my Career Wrapped</a>
-        <a class="pill ghost" href="Vindhya_Upadrasta_Resume.pdf" download>Download résumé</a>
+        <a class="pill" href="#wrapped">See my career highlights <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
       </div>
       <div class="tags">
         <span class="tag">AI-first product strategy</span>
@@ -453,7 +503,7 @@ html{scroll-padding-top:64px}
 
 <section class="wrapped" id="wrapped">
   <div class="wrap">
-    <span class="eyebrow rv">Career Wrapped</span>
+    <span class="eyebrow rv">Career highlights</span>
     <h2 class="rv">My career, <em>wrapped.</em></h2>
     <p class="sub rv">No algorithm required. Here's what the data says about the last 16+ years.</p>
     <div class="stats">
@@ -590,11 +640,11 @@ html{scroll-padding-top:64px}
   <div class="wrap">
     <span class="eyebrow rv">Let's talk</span>
     <h2 class="rv">Got a <span class="hl">messy</span> problem?</h2>
-    <span class="open-note rv">Open to Director+ product roles</span>
+    <span class="open-note rv">Open to Staff+/Director+ product roles</span>
     <p class="rv">If you're hiring, building an AI or data product, or just want to swap ideas, say hello. My inbox is always open. 💜</p>
     <div class="ctas rv">
       <a class="pill" href="mailto:vindhyaupadrasta@gmail.com">Email me</a>
-      <a class="pill ghost" href="https://www.linkedin.com/in/vindhya-upadrasta" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <a class="pill ghost" href="https://www.linkedin.com/in/vindhya-upadrasta/" target="_blank" rel="noopener">Connect on LinkedIn</a>
     </div>
   </div>
 </section>
@@ -644,7 +694,19 @@ document.querySelectorAll('.stat').forEach(function(s){ if(s.querySelector('[dat
   b.addEventListener('click',function(){ set(!r.classList.contains('menu-open')); });
   m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ set(false); }); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') set(false); });
-  window.matchMedia('(min-width:961px)').addEventListener('change',function(e){ if(e.matches) set(false); });
+  window.matchMedia('(min-width:1101px)').addEventListener('change',function(e){ if(e.matches) set(false); });
+})();
+
+(function(){
+  var links={}; document.querySelectorAll('nav ul a').forEach(function(a){ links[a.getAttribute('href').slice(1)]=a; });
+  var ids=Object.keys(links);
+  function setActive(id){ ids.forEach(function(k){ links[k].classList.toggle('active',k===id); }); }
+  if(!('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  ids.forEach(function(id){ var el=document.getElementById(id); if(el) io.observe(el); });
+  window.addEventListener('scroll',function(){ if(window.scrollY<200) setActive(''); },{passive:true});
 })();
 </script>
 </body>
